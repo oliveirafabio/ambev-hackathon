@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-
+import Dashboard from './components/Dashboard'
 import './App.css';
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      response: ''
+      dashboard: []
     }
   }
 
   componentWillMount(){
 
-    fetch('http://example.com/movies.json')
+    fetch('http://www.mocky.io/v2/5a9dd4743000006f0023497a')
     .then(function(response) {
       return response.json();
     })
     .then(function(myJson) {
       console.log(myJson);
       this.setState({
-        response: myJson
+        dashboard: myJson
       })
-    });
+    }.bind(this));
 
 
   }
@@ -34,11 +34,7 @@ class App extends Component {
           <h1 className="App-title">Ambev</h1>
         </header>
         <div>
-          {this.state.response}
-        </div>
-
-        <div>
-
+          <Dashboard valores={this.state.dashboard}/>
         </div>
       </div>
     );
