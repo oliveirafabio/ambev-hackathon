@@ -6224,6 +6224,14 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
+salad-ui.chart@^1.1.55:
+  version "1.1.55"
+  resolved "https://registry.yarnpkg.com/salad-ui.chart/-/salad-ui.chart-1.1.55.tgz#5c38e2453715140531a229fe06ef63997b2110ae"
+
+salad-ui@^1.1.55:
+  version "1.1.55"
+  resolved "https://registry.yarnpkg.com/salad-ui/-/salad-ui-1.1.55.tgz#0ef063b97299ef7d0ae55aa5d24e6c50a70795ef"
+
 sane@~1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/sane/-/sane-1.6.0.tgz#9610c452307a135d29c1fdfe2547034180c46775"
