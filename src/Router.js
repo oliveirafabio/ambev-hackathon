@@ -6,10 +6,6 @@ import Timeline from './components/Timeline'
 import App from './App';
 
 class Router extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <BrowserRouter>
