@@ -40,7 +40,7 @@ class Goals extends Component {
 
 const GaugeList = ({dashboard}) => {
   return dashboard.map((item, index) => {
-    return <Gauge key={`Gauge_${index}`} realizado={item}/>
+    return <Gauge key={`Gauge_${index}`} title={item.nomeMeta} realizado={item.realizado}/>
   })
 }
 export default Goals
