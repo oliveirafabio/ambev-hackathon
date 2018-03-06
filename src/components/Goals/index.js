@@ -10,7 +10,7 @@ class Goals extends Component {
     }
   }
   componentWillMount () {
-    fetch('http://www.mocky.io/v2/5a9ded0b300000340023499b')
+    fetch('http://hack-backend.azurewebsites.net/api/obter-indicador-atual?usuarioSap=123456')
     .then(function(response) {
       return response.json();
     })
@@ -40,7 +40,7 @@ class Goals extends Component {
 
 const GaugeList = ({dashboard}) => {
   return dashboard.map((item, index) => {
-    return <Gauge key={`Gauge_${index}`} realizado={item.Realizado}/>
+    return <Gauge key={`Gauge_${index}`} realizado={item}/>
   })
 }
 export default Goals

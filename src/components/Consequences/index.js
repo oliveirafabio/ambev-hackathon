@@ -19,13 +19,25 @@ class Consequences extends Component {
 
     this.state = {
       modalIsOpen: false,
-      lef: {}
+      consequencias: []
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
+ componentWillMount() {
+   fetch('http://hack-backend.azurewebsites.net/api/obter-consequencias?usuarioSap=442233')
+   .then(function(response) {
+     return response.json();
+   })
+   .then(function(myJson) {
+     this.setState({
+       consequencias: myJson
+     })
+   }.bind(this));
+ }
 
   openModal() {
    this.setState({modalIsOpen: true});
@@ -66,6 +78,12 @@ class Consequences extends Component {
         <Header />
 
         <button className='botao' onClick={this.openModal}>Registrar Consequencia</button>
+
+
+        <div className='board'>
+          <Consequencias lista={this.state.consequencias} />
+        </div>
+
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -102,4 +120,30 @@ class Consequences extends Component {
   }
 }
 
+const Consequencias = ({lista}) => {
+  return (
+    <table>
+      <tbody>
+    <tr>
+      <th>Data Leitura</th>
+      <th>Tipo Consequencias</th>
+      <th>Usuário operador</th>
+      <th>Usuário supervisor</th>
+      <th>Observacao</th>
+    </tr>
+    {lista.map(function(item, key) {
+             return (
+                <tr key = {key}>
+                    <td>{item.DataLeitura}</td>
+                    <td>{item.idTipoConsequencia}</td>
+                    <td>{item.idUsuarioOperador}</td>
+                    <td>{item.idUsuarioSupervisor}</td>
+                    <td>{item.observacao}</td>
+                </tr>
+              )
+
+           })}</tbody>
+     </table>
+  )
+}
 export default Consequences;
