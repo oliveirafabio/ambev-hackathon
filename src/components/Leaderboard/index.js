@@ -84,7 +84,7 @@ class Leaderboard extends Component {
 
 const Boardlist = ({dashboard}) => {
   return (
-    <table>
+    <table className='tabela'>
       <tbody>
     <tr>
       <th>Posição</th>

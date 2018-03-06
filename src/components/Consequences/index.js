@@ -79,10 +79,12 @@ class Consequences extends Component {
 
         <button className='botao' onClick={this.openModal}>Registrar Consequencia</button>
 
-
-        <div className='board'>
-          <Consequencias lista={this.state.consequencias} />
+        <div className='box'>
+          <div className='board'>
+            <Consequencias lista={this.state.consequencias} />
+          </div>
         </div>
+
 
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -122,23 +124,17 @@ class Consequences extends Component {
 
 const Consequencias = ({lista}) => {
   return (
-    <table>
+    <table className='tabela'>
       <tbody>
     <tr>
-      <th>Data Leitura</th>
-      <th>Tipo Consequencias</th>
-      <th>Usuário operador</th>
-      <th>Usuário supervisor</th>
-      <th>Observacao</th>
+      <th>Nome operador</th>
+      <th>Quantidade Ocorrências</th>
     </tr>
     {lista.map(function(item, key) {
              return (
                 <tr key = {key}>
-                    <td>{item.DataLeitura}</td>
-                    <td>{item.idTipoConsequencia}</td>
-                    <td>{item.idUsuarioOperador}</td>
-                    <td>{item.idUsuarioSupervisor}</td>
-                    <td>{item.observacao}</td>
+                    <td>{item.nomeOperador}</td>
+                    <td>{item.qtdConsequencias}</td>
                 </tr>
               )
 
