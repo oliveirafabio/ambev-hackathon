@@ -1,40 +1,16 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
-import Dashboard from './components/Dashboard'
+import Goals from './components/Goals'
+import Header from './components/Header'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import './App.css';
 
 class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      dashboard: []
-    }
-  }
-
-  componentWillMount(){
-
-    fetch('http://www.mocky.io/v2/5a9dd4743000006f0023497a')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(myJson) {
-      console.log(myJson);
-      this.setState({
-        dashboard: myJson
-      })
-    }.bind(this));
-
-
-  }
-
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Ambev</h1>
-        </header>
+        <Header />
         <div>
-          <Dashboard valores={this.state.dashboard}/>
+          Bem vindo!
         </div>
       </div>
     );
