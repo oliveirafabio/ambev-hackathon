@@ -25,7 +25,11 @@ class Goals extends Component {
     return (
       <div className='App'>
         <Header />
-        <div style={{display: 'flex'}}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          paddingTop: '50px'
+        }}>
           <GaugeList dashboard={this.state.dashboard} />
         </div>
       </div>

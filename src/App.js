@@ -42,8 +42,20 @@ class App extends Component {
 
  enviar ({state}) {
    //post state.lef e state.volume
+   const data = {
+     UsuarioSap: "123456",
+     ValorLef: state.lef,
+     ValorVolume: state.volume
+   }
 
-   this.closeModal()
+   fetch('http://hack-backend.azurewebsites.net/api/inserir-lef-por-hora', {
+      method: "POST",
+      headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+  }).then(this.closeModal)
  }
 
 
@@ -54,7 +66,7 @@ class App extends Component {
         <div>
           Bem vindo!
 
-          <button onClick={this.openModal}>Registrar LEF</button>
+          <button className='botao' onClick={this.openModal}>Registrar LEF</button>
         </div>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -63,17 +75,21 @@ class App extends Component {
           style={customStyles}
           ariaHideApp={false}
         >
-          <button onClick={this.closeModal}>x</button>
+
           <form>
-            <div>
+            <div className='form-control'>
               <label>LEF</label>
               <input name='lef' id='lef' onChange={(evt) => this.setState({lef : evt.target.value})}/>
             </div>
-            <div>
+            <div className='form-control'>
               <label>Volume</label>
               <input name='volume' id='volume' onChange={(evt) => this.setState({volume : evt.target.value})}/>
             </div>
-            <button onClick={(evt) => this.enviar(this)}>Enviar</button>
+            <div className='form-buttons'>
+              <button className='botao' onClick={this.closeModal}>Cancelar</button>
+              <button className='botao' onClick={(evt) => this.enviar(this)}>Enviar</button>
+            </div>
+
           </form>
         </Modal>
       </div>
