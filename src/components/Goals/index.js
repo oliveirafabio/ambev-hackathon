@@ -9,22 +9,19 @@ class Goals extends Component {
       dashboard : []
     }
   }
-  componentWillMount (){
+  componentWillMount () {
     fetch('http://www.mocky.io/v2/5a9ded0b300000340023499b')
     .then(function(response) {
       return response.json();
     })
     .then(function(myJson) {
-      console.log(myJson);
       this.setState({
         dashboard: myJson
       })
     }.bind(this));
   }
-  //const [brasil, fabrica, linha] = props.valores
 
   render() {
-    console.log(this.state.dashboard)
     return (
       <div className='App'>
         <Header />
