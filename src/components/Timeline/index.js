@@ -12,7 +12,7 @@ const Timeline = (props) => {
   return (
     <div className='App'>
       <Header />
-      <SaladUI.Chart.Area
+      <SaladUI.Chart.Line
         width={900}
         height={300}
         labelTemplate={data=>`A linha estava operando a ${data.value} nesse horario`}
